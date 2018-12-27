@@ -20,17 +20,11 @@ class Writing extends Component {
         e.preventDefault();
     };
     handleChange = (e) => {
-        // react 특징때문에 event를 저장해두었다가 사용
-        const event = e;
-        console.log('userInput is ' + event.target.id);
-        console.log('userInput is ' + this.state.userContentInput);
         if(e.target.id ===  'userTitleInput') {
-            console.log("타이틀");
             this.setState({
                 userTitleInput: e.target.value,
             })
         } else if (e.target.id ===  'userContentInput') {
-            console.log("컨텐츠");
             this.setState({
                 userContentInput: e.target.value,
             })
