@@ -4,24 +4,37 @@ class Writing extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInput: "",
-            userInputPlaceHolder: "텍스트를 입력해주세요."
+            userTitleInput: "",
+            userContentInput: ""
+
         }
     };
     handleSubmit = (e) => {
         console.log('submitted');
-        this.props.submit(this.state.userInput);
+        this.props.submit(this.state.userTitleInput);
+        this.props.submit(this.state.userContentInput);
         this.setState({
-            userInput : ""
+            userTitleInput: "",
+            userContentInput: ""
         });
 
         e.preventDefault();
     };
-    handleChange = (event) => {
-        console.log('userInput is ' + this.state.userInput);
-        this.setState({
-            userInput: event.target.value
-        })
+    handleChange = (e) => {
+        // react 특징때문에 event를 저장해두었다가 사용
+        const event = e;
+        console.log('userInput is ' + event.target.id);
+        // console.log('userInput is ' + this.state.userContentInput);
+        if(e.target.id ===  'userTitleInput') {
+            console.log("타이틀")
+            this.setState({
+                userContentInput: e.target.value,
+            })
+        } else if (e.target.id ===  'userContentInput') {
+            this.setState({
+                userContentInput: e.target.value,
+            })
+        }
     };
     render() {
         return (
@@ -29,10 +42,20 @@ class Writing extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-field">
                         <input
+                            id={'userTitleInput'}
+                            key={0}
                             type='text'
-                            value={this.state.userInput}
+                            value={this.state.userTitleInput}
                             onChange={this.handleChange}
-                            placeholder={this.state.userInputPlaceHolder}
+                            placeholder={'Title'}
+                        />
+                        <input
+                            id={'userContentInput'}
+                            key={1}
+                            type='text'
+                            value={this.state.userContentInput}
+                            onChange={this.handleChange}
+                            placeholder={'Take a note'}
                         />
                     </div>
                     <input
