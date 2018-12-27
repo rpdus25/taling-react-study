@@ -13,8 +13,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Counter counterNum={1}/>
-          <Counter counterNum={2}/>
+          <Counter intervalNum={1}/>
+          <Counter intervalNum={2}/>
         </header>
       </div>
     );
