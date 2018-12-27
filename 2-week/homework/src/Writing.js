@@ -11,7 +11,10 @@ class Writing extends Component {
     handleSubmit = (e) => {
         console.log('submitted');
         this.props.submit(this.state.userInput);
-        this.state.userInput = '';
+        this.setState({
+            userInput : ""
+        });
+
         e.preventDefault();
     };
     handleChange = (event) => {
