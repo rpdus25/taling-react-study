@@ -25,7 +25,7 @@ class App extends Component {
             savedNotes: [
                 ...savedNotes,
                 //content 안에 userInput을 넣어야, content로 저장이 됩니다.
-                {title: userTitleInput, content: userContentInput}
+                {id:savedNotes.length+1, title: userTitleInput, content: userContentInput}
             ]
         })
     }

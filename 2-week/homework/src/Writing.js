@@ -6,7 +6,6 @@ class Writing extends Component {
         this.state = {
             userTitleInput: "",
             userContentInput: ""
-
         }
     };
     handleSubmit = (e) => {
