@@ -19,17 +19,9 @@ class Writing extends Component {
         e.preventDefault();
     };
     handleChange = (e) => {
-        if(e.target.id ===  'userTitleInput') {
-            this.setState({
-                userTitleInput: e.target.value,
-            })
-        } else if (e.target.id ===  'userContentInput') {
-            this.setState({
-                userContentInput: e.target.value,
-            })
-        } else {
-            return false;
-        }
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     };
     render() {
         return (
@@ -37,14 +29,14 @@ class Writing extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-field">
                         <input
-                            id={'userTitleInput'}
+                            name='userTitleInput'
                             type='text'
                             value={this.state.userTitleInput}
                             onChange={this.handleChange}
                             placeholder='Title'
                         />
                         <input
-                            id={'userContentInput'}
+                            name='userContentInput'
                             type='text'
                             value={this.state.userContentInput}
                             onChange={this.handleChange}
