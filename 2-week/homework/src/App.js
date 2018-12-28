@@ -43,7 +43,7 @@ class App extends Component {
           {/*지금은 조금 어려울 수 있는 내용이니, 일단 {}형태로 함수를 선언하면 return이 필요하고*/}
           {/*아닐 경우에는 안넣어도 된다고 이해하고 넘어갑시다.*/}
             {this.state.savedNotes.map((note) => (
-                <Note title={note.title} content={note.content}/>
+                <Note key={note.id} title={note.title} content={note.content}/>
             ))}
         </div>
       </div>

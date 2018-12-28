@@ -39,19 +39,17 @@ class Writing extends Component {
                     <div className="input-field">
                         <input
                             id={'userTitleInput'}
-                            key={0}
                             type='text'
                             value={this.state.userTitleInput}
                             onChange={this.handleChange}
-                            placeholder={'Title'}
+                            placeholder='Title'
                         />
                         <input
                             id={'userContentInput'}
-                            key={1}
                             type='text'
                             value={this.state.userContentInput}
                             onChange={this.handleChange}
-                            placeholder={'Take a note'}
+                            placeholder='Take a note'
                         />
                     </div>
                     <input
