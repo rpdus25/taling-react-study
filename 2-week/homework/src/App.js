@@ -25,7 +25,11 @@ class App extends Component {
             savedNotes: [
                 ...savedNotes,
                 //content 안에 userInput을 넣어야, content로 저장이 됩니다.
-                {id:savedNotes.length+1, title: userTitleInput, content: userContentInput}
+                {
+                    id:savedNotes.length+1,
+                    title: userTitleInput,
+                    content: userContentInput
+                }
             ]
         })
     }
@@ -43,7 +47,11 @@ class App extends Component {
           {/*지금은 조금 어려울 수 있는 내용이니, 일단 {}형태로 함수를 선언하면 return이 필요하고*/}
           {/*아닐 경우에는 안넣어도 된다고 이해하고 넘어갑시다.*/}
             {this.state.savedNotes.map((note) => (
-                <Note key={note.id} title={note.title} content={note.content}/>
+                <Note
+                    key={note.id}
+                    title={note.title}
+                    content={note.content}
+                />
             ))}
         </div>
       </div>

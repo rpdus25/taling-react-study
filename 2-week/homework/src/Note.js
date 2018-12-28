@@ -14,7 +14,7 @@ class Note extends Component {
             <div className='col s12 m6 l3'>
                 <div className='card blue-grey darken-1'>
                     <div className='card-content white-text'>
-                        <span class="card-title">{title}</span>
+                        <span className="card-title">{title}</span>
                         <p>{content}</p>
                     </div>
                 </div>
