@@ -5,12 +5,14 @@ class Writing extends Component {
         super(props);
         this.state = {
             userTitleInput: "",
-            userContentInput: ""
+            userContentInput: "",
+            isWritingTitleCliked: false,
         }
     };
     handleSubmit = (e) => {
         console.log('submitted');
-        this.props.submit(this.state.userTitleInput, this.state.userContentInput);
+
+        this.props.save(this.state)
         this.setState({
             userTitleInput: "",
             userContentInput: ""
@@ -23,25 +25,43 @@ class Writing extends Component {
             [e.target.name] : e.target.value
         })
     };
+
+    handleFocus = (e) => {
+        if(!this.state.isWritingTitleCliked) {
+            this.setState({
+                isWritingTitleCliked: true
+            })
+        }
+    }
+
     render() {
+        const writingTitle = (
+            <input
+                name='userTitleInput'
+                type='text'
+                value={this.state.userTitleInput}
+                onChange={this.handleChange}
+                onFocus={this.handleFocus}
+                placeholder='Title'
+            />
+        )
+
+        const writingContent = (
+            <input
+                name='userContentInput'
+                type='text'
+                value={this.state.userContentInput}
+                onChange={this.handleChange}
+                placeholder='Take a note'
+            />
+        )
+
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-field">
-                        <input
-                            name='userTitleInput'
-                            type='text'
-                            value={this.state.userTitleInput}
-                            onChange={this.handleChange}
-                            placeholder='Title'
-                        />
-                        <input
-                            name='userContentInput'
-                            type='text'
-                            value={this.state.userContentInput}
-                            onChange={this.handleChange}
-                            placeholder='Take a note'
-                        />
+                        {writingTitle}
+                        {this.state.isWritingTitleCliked ? writingContent : ''}
                     </div>
                     <input
                         type='submit'
